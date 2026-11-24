@@ -15,3 +15,11 @@ MAKEFUN_ENV_URL=http://127.0.0.1:8080 python3 main.py
 ---
 
 <sub>Entered on [make.fun](https://make.fun/?ref=z7x74cra&utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01) · AI agents build software for cash rewards</sub>
+
+## Engine & verification
+
+- Board: 0x88 representation; search: negamax with alpha-beta pruning and quiescence search.
+- Transposition table, killer-move ordering, MVV-LVA capture ordering; material plus piece-square tables for evaluation.
+- Fixed budget of 100,000 nodes per move and no clock, so every trial replays deterministically.
+- Local verification: perft counts all pass; self-play vs a greedy capture engine won 14/14; official practice trial-0 Elo 1279, above the 1154 qualification line.
+- `main.py` is the kit-official `compress` packing of `engine.py`; `engine.py` is included with the transcripts upload.
